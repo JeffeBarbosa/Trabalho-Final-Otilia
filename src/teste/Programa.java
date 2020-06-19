@@ -22,6 +22,7 @@ public class Programa {
 		for (int cont = 0; cont < entregador; cont++) {
 			pilhaEntregador.empilha("Entregador");
 		}
+		
 		do {
 			System.out.println("1-Escolher o pedido");
 			System.out.println("2-Sair para a entrega");
@@ -32,9 +33,8 @@ public class Programa {
 			altern = teclado.nextInt();
 			switch (altern) {
 			case 1: {
-				String fin = escolhaPedido();
-				filaPedido.enfileira(fin);
-				System.out.println(filaPedido.toString());
+				String finalPedido = escolhaPedido();
+				filaPedido.enfileira(finalPedido);
 			}
 				break;
 			case 2:
@@ -72,41 +72,53 @@ public class Programa {
 	public static String escolhaPedido() {
 		int resposta;
 		int valor = 0;
-		String pedido = null;
+		String pedido = "Pedido= ";
+		String altern;
 		do {
-			System.out.println("       Informe seu pedido  ");
-			System.out.println("1-Xis Salada                 R$15,00");
-			System.out.println("2-Cachorro Quente Pequeno    R$6,00");
-			System.out.println("3-Cachorro Quente Grande     R$10,00");
-			System.out.println("4-Refrigerante 1,5L          R$8,00");
-			System.out.println("OBS: Será cobrado R$7,00 de entrega");
-			resposta = teclado.nextInt();
-		} while ((resposta >= 5) || (resposta <= 0));
-		switch (resposta) {
-		case 1:
-			pedido = "Xis Salada";
-			valor = 15 + 7;
-			break;
-		case 2:
-			pedido = "Cachorro Quente Pequeno";
-			valor = 6 + 7;
-			break;
-		case 3:
-			pedido = "Cachorro Quente Grande";
-			valor = 10 + 7;
-			break;
-		case 4:
-			pedido = "Refrigerante";
-			valor = 8 + 7;
-			break;
-		}
+			do {
+			    System.out.println("       Informe seu pedido  ");
+			    System.out.println("1-Xis Salada                 R$15,00");
+			    System.out.println("2-Cachorro Quente Pequeno    R$6,00");
+			    System.out.println("3-Cachorro Quente Grande     R$10,00");
+			    System.out.println("4-Refrigerante 1,5L          R$8,00");
+			    System.out.println("OBS: Será cobrado R$7,00 de entrega");
+			    resposta = teclado.nextInt();
+		      }while ((resposta >= 5) || (resposta <= 0));		
+			  switch (resposta) {
+			  case 1:
+				 pedido = pedido +"Xis Salada, ";
+				 valor = valor + 15;
+				 break;
+			  case 2:
+				 pedido = pedido +"Cachorro Quente Pequeno, ";
+				 valor = 6 + valor;
+				 break;
+			  case 3:
+				 pedido = pedido +"Cachorro Quente Grande, ";
+				 valor = 10 + valor;
+				 break;
+			  case 4:
+				 pedido =  pedido +"Refrigerante, ";
+				 valor = 8 + valor;
+				 break;
+			  }
+			  teclado.nextLine();
+			  do {
+			     System.out.println("Deseja fazer mais algum pedido?    S/N");
+			     altern=teclado.nextLine();
+			     if((!altern.equalsIgnoreCase("S")) && (!altern.equalsIgnoreCase("N"))) {
+			    	 System.out.println("A alternativa selecionada está errada");
+			    	 continue;
+			     }
+			     break;
+			  }while(true);  
+			  System.out.println(pedido);
+		} while (altern.equalsIgnoreCase("S"));
 		System.out.println("Informe seu nome");
-		teclado.nextLine();
 		String nomePedido = teclado.nextLine();
-
 		System.out.println("Informe seu endereço");
 		String enderecoPedido = teclado.nextLine();
 
-		return pedido + "," + "R$" + valor + " reais ," + nomePedido + "," + enderecoPedido;
+		return  pedido + "Valor= R$" + (valor+7) + " reais , Nome do comprador= " + nomePedido + ", Endereço= " + enderecoPedido;
 	}
 }
