@@ -18,8 +18,8 @@ public class Programa {
 		int altern = 0;
 
 		System.out.println("Informe quantos entregadores a no restaurante");
-		int ente = teclado.nextInt();
-		for (int cont = 0; cont < ente; cont++) {
+		int entregador = teclado.nextInt();
+		for (int cont = 0; cont < entregador; cont++) {
 			pilhaEntregador.empilha("Entregador");
 		}
 		do {
