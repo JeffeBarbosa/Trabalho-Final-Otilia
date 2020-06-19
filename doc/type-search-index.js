@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"estruturas","l":"EstruturaEstatica"},{"p":"estruturas","l":"FilaPedidos"},{"p":"estruturas","l":"PilhaReclamacao"},{"p":"teste","l":"Programa"}]
