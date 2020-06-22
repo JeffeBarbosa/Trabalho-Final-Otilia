@@ -38,7 +38,7 @@ public class FilaPedidos <T> extends EstruturaEstatica <T> {
 		int cont;
 		for (cont=0; cont<this.tamanho-1; cont++) {
 			s.append(this.elementos[cont]);
-			s.append(" ");
+			s.append("\n");
 		} 
 		
 		if (this.tamanho > 0) {
